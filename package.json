@@ -1,0 +1,26 @@
+{
+  "name": "product-descriptions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siegemaster-ninsha/product-descriptions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siegemaster-ninsha/product-descriptions/issues"
+  },
+  "homepage": "https://github.com/siegemaster-ninsha/product-descriptions#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "node-fetch": "^2.6.11"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.4"
+  }
+}
