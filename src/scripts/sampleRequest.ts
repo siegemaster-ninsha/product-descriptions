@@ -1,4 +1,4 @@
-{
+export const sampleRequest = {
   "productName": "Bakflip Firestorm",
   "productBrand": "Bakflip",
   "productCategory": "Hard-folding tonneau covers",

@@ -46,7 +46,6 @@ export async function chatGPT(promptOptions: PromptMessage) {
   }
 
   const data: any = await response.json();
-  console.log(data.choices[0].message.content)
   return data.choices[0].message.content;
 }
 

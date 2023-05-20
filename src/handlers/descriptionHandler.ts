@@ -1,5 +1,4 @@
 import { getDraftProductDescription } from '../controllers/descriptionController';
-
 export interface DraftProductRequest {
     productName: string;
     productBrand: string;
@@ -14,6 +13,5 @@ export async function handleDraftProductRequest(event: DraftProductRequest) {
     {throw new Error('insufficient product name, brand, or attributes');}
 
     const result = await getDraftProductDescription(event)
-    console.log(result);
     return result;
 }

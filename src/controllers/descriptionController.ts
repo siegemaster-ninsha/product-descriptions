@@ -10,7 +10,7 @@ export async function getDraftProductDescription(draftDescriptionRequest: DraftP
     const attributes = getAttributes(draftDescriptionRequest.productAttributes);
     
     const promptOptions = {
-        goal: 'Write a draft description for a product that will be published on an ecommerce website. Use the constraints, writing style, attributes, and any additional notes to inform the creation process',
+        goal: 'Write a draft description for a product that will be published on an ecommerce website. Use the constraints, writing style, attributes, and any additional notes to inform the creation process.  Once you have written the prompt, read it yourself and make improvements before returning it to me.',
         productName: draftDescriptionRequest.productName,
         productBrand: draftDescriptionRequest.productBrand,
         productCategory: draftDescriptionRequest.productCategory,
