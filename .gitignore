@@ -1,0 +1,14 @@
+.env
+logs
+*.log
+node_modules/
+.build/
+.serverless/
+.vscode/
+dist/
+keys/
+reports/
+tmp/
+yarn.lock
+
+.DS_Store
