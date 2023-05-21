@@ -1,6 +1,6 @@
 export const sampleRequest = {
-  "productName": "Bakflip Firestorm",
-  "productBrand": "Bakflip",
+  "productName": "TonneauMaster BC-21 Firestorm",
+  "productBrand": "TonneauMaster",
   "productCategory": "Hard-folding tonneau covers",
   "productAttributes": [
     "cupholders",
