@@ -1,3 +1,5 @@
+import { Lifestyle } from '../services/voice';
+
 export const sampleRequest = {
   "productName": "TonneauMaster BC-21 Firestorm",
   "productBrand": "TonneauMaster",
@@ -7,6 +9,6 @@ export const sampleRequest = {
     "locking cover",
     "rear-facing flamethrowers"
   ],
-  "lifeStyleSegment": "outdoors",
+  "lifeStyleSegment": "outdoors" as Lifestyle,
   "additionalNote": "the flames are awesome"
 }
