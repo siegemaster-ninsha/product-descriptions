@@ -22,7 +22,7 @@ interface GptMessages {
   content: string
 }
 
-export async function chatGPT(promptOptions: PromptMessage) {
+export async function query(promptOptions: PromptMessage) {
   const API_KEY = process.env.API_KEY;
   const url = 'https://api.openai.com/v1/chat/completions';
 
@@ -46,7 +46,9 @@ export async function chatGPT(promptOptions: PromptMessage) {
   }
 
   const data: any = await response.json();
-  return data.choices[0].message.content;
+  console.log('data:', data);
+
+  return data?.choices?.[0]?.message?.content;
 }
 
 
