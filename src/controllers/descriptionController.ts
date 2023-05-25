@@ -2,24 +2,29 @@ import { DraftProductRequest } from "../handlers/descriptionHandler";
 import { getConstraints } from "../services/constraints";
 import { getWritingStyle } from "../services/voice";
 import { getAttributes } from "../services/attributes";
-import { query } from '../services/chatGptService';
-export async function getDraftProductDescription(draftDescriptionRequest: DraftProductRequest){
+import { query } from "../services/chatGptService";
+import { getFormat } from "../services/format";
+import { PromptMessage } from "../services/chatGptService";
+import { getGoal } from "../services/goals";
 
-    const constraints = getConstraints();
-    const writingStyle = getWritingStyle(draftDescriptionRequest.lifeStyleSegment);
-    const attributes = getAttributes(draftDescriptionRequest.productAttributes);
+export async function getDraftProductDescription(draftDescriptionRequest: DraftProductRequest) {
+  const goal = getGoal();
+  const attributes = getAttributes(draftDescriptionRequest.productAttributes);
+  const constraints = getConstraints();
+  const writingStyle = getWritingStyle(draftDescriptionRequest.lifeStyleSegment);
 
-    const promptOptions = {
-        goal: `Write a draft description for a product that will be published on an ecommerce website.  
-             Use the constraints, writing style, attributes, and any additional notes to inform the creation process.`,
-        productName: draftDescriptionRequest.productName,
-        productBrand: draftDescriptionRequest.productBrand,
-        productCategory: draftDescriptionRequest.productCategory,
-        constraints: constraints,
-        writingStyle: writingStyle,
-        attributes: attributes,
-        additionalNote: draftDescriptionRequest.additionalNote
-    }
+  const promptOptions: PromptMessage = {
+    goal: goal,
+    productName: draftDescriptionRequest.productName,
+    productBrand: draftDescriptionRequest.productBrand,
+    productCategory: draftDescriptionRequest.productCategory,
+    constraints: constraints,
+    writingStyle: writingStyle,
+    attributes: attributes,
+    additionalNote: draftDescriptionRequest.additionalNote,
+  };
 
-    return query(promptOptions)
+  const formattedPrompt = getFormat(promptOptions);
+
+  return query(formattedPrompt);
 }
