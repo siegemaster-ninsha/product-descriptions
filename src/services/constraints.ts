@@ -1,5 +1,6 @@
-const DEFAULT_CONSTRAINTS = 'do not in any way mention safety, security, warranty, or any other topics that may be considered politically controversial or legally problematic.'
+const DEFAULT_CONSTRAINTS =
+  "Do not mention safety, security, warranty, or anything potentially politically controversial or legally problematic.  Do not use headers for each section.";
 
-export function getConstraints(){
-    return [DEFAULT_CONSTRAINTS];
+export function getConstraints() {
+  return [DEFAULT_CONSTRAINTS];
 }
