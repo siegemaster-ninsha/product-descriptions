@@ -22,8 +22,7 @@ interface GptMessages {
   content: string;
 }
 
-export async function query(promptOptions: string) {
-  const API_KEY = process.env.API_KEY;
+export async function query(promptOptions: string, key: string) {
   const url = "https://api.openai.com/v1/chat/completions";
 
   const optionString = JSON.stringify(promptOptions);
@@ -37,7 +36,7 @@ export async function query(promptOptions: string) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${API_KEY}`,
+      Authorization: `Bearer ${key}`,
     },
     body: JSON.stringify(gptRequestParams),
   });
@@ -54,4 +53,3 @@ export async function query(promptOptions: string) {
   }
   return data?.choices?.[0]?.message?.content;
 }
-

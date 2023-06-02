@@ -28,29 +28,29 @@ export class ProductDescriptionGenerator {
       throw new Error("insufficient product name, brand, or attributes");
     }
 
-    return getDraftProductDescription(event);
+    return this.getDraftProductDescription(event);
   }
-}
 
-export async function getDraftProductDescription(draftDescriptionRequest: DraftProductRequest) {
-  const goal = getGoal();
-  const attributes = getAttributes(draftDescriptionRequest.productAttributes);
-  const constraints = getConstraints();
-  const writingStyle = getWritingStyle(draftDescriptionRequest.lifeStyleSegment);
-
-  const promptOptions: PromptMessage = {
-    goal: goal,
-    productName: draftDescriptionRequest.productName,
-    productBrand: draftDescriptionRequest.productBrand,
-    productCategory: draftDescriptionRequest.productCategory,
-    constraints: constraints,
-    writingStyle: writingStyle,
-    attributes: attributes,
-    additionalNote: draftDescriptionRequest.additionalNote,
-  };
-
-  const formattedPrompt = getFormat(promptOptions);
-
-  return query(formattedPrompt);
+  private async getDraftProductDescription(draftDescriptionRequest: DraftProductRequest) {
+    const goal = getGoal();
+    const attributes = getAttributes(draftDescriptionRequest.productAttributes);
+    const constraints = getConstraints();
+    const writingStyle = getWritingStyle(draftDescriptionRequest.lifeStyleSegment);
+  
+    const promptOptions: PromptMessage = {
+      goal: goal,
+      productName: draftDescriptionRequest.productName,
+      productBrand: draftDescriptionRequest.productBrand,
+      productCategory: draftDescriptionRequest.productCategory,
+      constraints: constraints,
+      writingStyle: writingStyle,
+      attributes: attributes,
+      additionalNote: draftDescriptionRequest.additionalNote,
+    };
+  
+    const formattedPrompt = getFormat(promptOptions);
+  
+    return query(formattedPrompt, this.gbtKey);
+  }
 }
 
