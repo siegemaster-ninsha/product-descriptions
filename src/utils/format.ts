@@ -1,4 +1,4 @@
-import { PromptMessage } from "./chatGptService";
+import { PromptMessage } from "../services/chatGptService";
 
 export function getFormat(promptToFormat: PromptMessage) {
   const newLineSeparatedAttributes = formatAttributes(promptToFormat.attributes);
