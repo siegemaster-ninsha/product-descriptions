@@ -1,5 +1,4 @@
 import fetch from "node-fetch";
-require("dotenv").config();
 
 export interface PromptMessage {
   productName: string;
@@ -55,3 +54,4 @@ export async function query(promptOptions: string) {
   }
   return data?.choices?.[0]?.message?.content;
 }
+

@@ -1,4 +1,4 @@
-import { Lifestyle } from "../services/voice";
+import { Lifestyle } from "../src/utils/voice";
 
 export const sampleRequest = {
   productName: "Reaper 42-21 Running Boards",
