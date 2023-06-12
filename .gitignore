@@ -12,3 +12,5 @@ tmp/
 yarn.lock
 
 .DS_Store
+
+data/**/*

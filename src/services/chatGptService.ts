@@ -8,7 +8,7 @@ export interface PromptMessage {
   constraints: string[];
   writingStyle: string[];
   attributes: string;
-  additionalNote: string;
+  additionalNote?: string;
 }
 
 interface PromptOptions {
