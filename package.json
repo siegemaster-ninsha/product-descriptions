@@ -2,10 +2,15 @@
   "name": "product-descriptions",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "test"
+    "test": "test",
+    "script:descriptionGenerator": "./scripts/buildProductDescription.ts"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": "9"
   },
   "repository": {
     "type": "git",

@@ -28,33 +28,13 @@ export class ProductDescriptionGenerator {
   }
 
   public async handleDraftProductRequest(event: ProductDescriptionRequest) {
-    if (!event.name || !event.brand || !event.attributes?.length) {
-      throw new Error("insufficient product name, brand, or attributes");
+    if (!event.name || !event.brand || !event.category) {
+      console.log('MALFORMED PRODUCT DESCRIPTION EVENT');
+      console.log(event);
+      throw new Error("insufficient product name, brand, or category");
     }
 
     return this.getDraftProductDescription(event);
-  }
-
-  private async getDraftProductDescription(draftDescriptionRequest: ProductDescriptionRequest) {
-    const goal = getGoal();
-    const attributes = getAttributes(draftDescriptionRequest.attributes);
-    const constraints = getConstraints();
-    const writingStyle = getWritingStyle(draftDescriptionRequest.lifeStyleSegment);
-
-    const promptOptions: PromptMessage = {
-      goal: goal,
-      productName: draftDescriptionRequest.name,
-      productBrand: draftDescriptionRequest.brand,
-      productCategory: draftDescriptionRequest.category,
-      constraints: constraints,
-      writingStyle: writingStyle,
-      attributes: attributes,
-      additionalNote: draftDescriptionRequest.additionalNote,
-    };
-
-    const formattedPrompt = getFormat(promptOptions);
-
-    return query(formattedPrompt, this.gbtKey);
   }
 
   public buildProductAttributes(product: any): string[] {
@@ -80,6 +60,28 @@ export class ProductDescriptionGenerator {
       lifeStyleSegment: this.lifestyleSegment,
       additionalNote: "color is matte black",
     }
+  }
+
+  private async getDraftProductDescription(draftDescriptionRequest: ProductDescriptionRequest) {
+    const goal = getGoal();
+    const attributes = getAttributes(draftDescriptionRequest.attributes);
+    const constraints = getConstraints();
+    const writingStyle = getWritingStyle(draftDescriptionRequest.lifeStyleSegment);
+
+    const promptOptions: PromptMessage = {
+      goal: goal,
+      productName: draftDescriptionRequest.name,
+      productBrand: draftDescriptionRequest.brand,
+      productCategory: draftDescriptionRequest.category,
+      constraints: constraints,
+      writingStyle: writingStyle,
+      attributes: attributes,
+      additionalNote: draftDescriptionRequest.additionalNote,
+    };
+
+    const formattedPrompt = getFormat(promptOptions);
+
+    return query(formattedPrompt, this.gbtKey);
   }
 }
 

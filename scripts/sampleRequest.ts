@@ -1,5 +1,4 @@
 import { ProductDescriptionRequest } from "../src/interfaces";
-import { Lifestyle } from "../src/utils/voice";
 
 export const sampleRequest: ProductDescriptionRequest = {
   name: "Reaper 42-21 Running Boards",

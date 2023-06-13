@@ -6,6 +6,7 @@ export interface Product   {
   diameter?: string;
   features: string;
   finish?: string;
+  generatedDescription?: string;
   isAccessory?: boolean;
   isNew: boolean;
   madeInUsa: boolean;
